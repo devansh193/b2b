@@ -1,4 +1,3 @@
-import { v } from "convex/values";
 import { query, mutation } from "./_generated/server";
 
 export const getMany = query({
@@ -11,6 +10,10 @@ export const getMany = query({
 export const add = mutation({
   args: {},
   handler: async (ctx) => {
+    const identity = await ctx.auth.getUserIdentity();
+    if (identity === null) {
+      throw new Error("Not authenticated");
+    }
     const user = await ctx.db.insert("users", {
       name: "Devansh",
     });
