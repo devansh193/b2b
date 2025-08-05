@@ -27,17 +27,6 @@ export default function Page() {
           >
             Add
           </Button>
-          <div>
-            {users ? (
-              users.map((user) => (
-                <p className="text-xl font-sans text-blue-700" key={user._id}>
-                  {user.name}
-                </p>
-              ))
-            ) : (
-              <p>Loading...</p>
-            )}
-          </div>
         </div>
       </Authenticated>
       <Unauthenticated>

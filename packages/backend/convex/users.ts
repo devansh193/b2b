@@ -11,6 +11,7 @@ export const add = mutation({
   args: {},
   handler: async (ctx) => {
     const identity = await ctx.auth.getUserIdentity();
+
     if (identity === null) {
       throw new Error("Not authenticated");
     }
@@ -18,6 +19,9 @@ export const add = mutation({
     if (!orgId) {
       throw new Error("No organization found for the user");
     }
+
+    throw new Error("Tracking test");
+
     const user = await ctx.db.insert("users", {
       name: "Devansh",
     });
