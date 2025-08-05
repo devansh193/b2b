@@ -1,6 +1,6 @@
 "use client";
 
-import { SignInButton, UserButton } from "@clerk/nextjs";
+import { OrganizationSwitcher, SignInButton, UserButton } from "@clerk/nextjs";
 import { api } from "@workspace/backend/_generated/api";
 import { Button } from "@workspace/ui/components/button";
 import {
@@ -19,6 +19,7 @@ export default function Page() {
         <div className="flex items-center justify-center min-h-svh flex-col">
           <p className="font-sans text-2xl">apps/web</p>
           <UserButton />
+          <OrganizationSwitcher hidePersonal />
           <Button
             onClick={() => {
               addUser();
